@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>Book a Slot</title>
+</head>
+<body class="booking-body">
+    <header class="booking-header">
+        <h1 class="booking-title">Reserve Your Charging Slot</h1>
+        <p class="booking-subtitle">Select a station and secure your slot quickly and easily.</p>
+    </header>
+    <main class="booking-main">
+        <div class="booking-card">
+            <form id="bookingForm" class="booking-form">
+                <label for="bunkSelect" class="booking-label">Choose Bunk</label>
+                <select id="bunkSelect" class="booking-select" required>
+                    <option value="">Select Bunk</option>
+                    <!-- Bunk options displayed here -->
+                </select>
+    
+                <label for="slotSelect" class="booking-label">Choose Slot</label>
+                <select id="slotSelect" class="booking-select" required disabled>
+                    <option value="">Select Slot</option>
+                    <!-- Slot options will be showed based on the selected bunk -->
+                </select>
+    
+                <label for="bookingDate" class="booking-label">Select Booking Date</label>
+                <input type="date" id="bookingDate" class="booking-select" required />
+    
+                <div class="button-container">
+                    <button type="button" class="booking-button" id="resetButton">Reset</button>
+                    <button type="submit" class="booking-button">Book Now</button>
+                </div>
+            </form>
+        </div>
+    </main>    
+    <script type="module" src="script.js"></script>
+</body>
+</html>

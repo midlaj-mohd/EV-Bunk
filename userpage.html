@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600&display=swap" rel="stylesheet">
+    <title>Nitro Charging</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+</head>
+<body>
+    <section class="index">
+        <header>
+            <div class="quick">
+                <nav>
+                    <ul>
+                        <li>
+                            <input type="text" id="stationSearch" placeholder="Search nearby Station" aria-label="Search for a station">
+                        </li>
+                        <div id="searchResults" class="search-results">
+                            <!-- Search results will be displayed here -->
+                        </div>
+                        <li><a href="#available-stations" id="availableStationsButton">Available Stations</a></li>
+                        <li><a href="#map">EV Map</a></li>
+                        <li><a href="#" id="myBookingsButton">My Bookings</a></li>
+                        <!-- Popup for displaying recent booking info -->
+                        <div id="bookingInfoPopup" class="booking-info-popup hidden">
+                            <div class="popup-content">
+                                <span class="close-btn" id="closePopupBtn">&times;</span>
+                                <h3>Your Booking</h3>
+                                <p><strong>Bunk Name:</strong> <span id="popupBunkName"></span></p>
+                                <p><strong>Slot Number:</strong> <span id="popupSlotNumber"></span></p>
+                                <p><strong>Location:</strong> <span id="popupLocation"></span></p>
+                                <p><strong>Contact:</strong> <span id="popupContact"></span></p>
+                            </div>
+                        </div>                        
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <section class="hero">
+            <div class="hero-text">
+                <h1>FIND THEN GET CHARGE</h1>
+                <p>Charge your electric vehicle using one of our smart charge solutions, or gain access to the public charging bays across the city.</p>
+                <a href="booking.html">
+                    <button>Book Slot</button>
+                </a>
+            </div>
+            <div class="hero-image">
+                <img src="charging-station.png" alt="Charging Station with Car">
+            </div>
+        </section>
+
+        <!-- Section for Available Stations -->
+        <section id="available-stations" class="stations-section">
+            <h2>Available Stations</h2>
+            <div id="stationsContainer" class="stations-container">
+                <!-- Available stations will be displayed here -->
+            </div>
+            <h2>EV Bunk Map</h2>
+        </section>
+        <div id="map" style="height: 500px;"></div>
+    </section>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script type="module" src="script.js"></script>
+</body>
+</html>

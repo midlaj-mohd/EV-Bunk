@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+</head>
+<body>
+    <div class="admin-dashboard">
+        <aside class="sidebar">
+            <h2 class="sidebar-title">Admin Panel</h2>
+            <nav class="sidebar-nav">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="#" id="addBunkLink" class="nav-link">Create Bunk</a></li>
+                    <li class="nav-item"><a href="#" id="manageBunkLink" class="nav-link">Manage Bunk</a></li>
+                    <li class="nav-item"><a href="#" id="manageUsersLink" class="nav-link">Manage Users</a></li>
+                    <li class="nav-item"><a href="#" id="removeSlotLink" class="nav-link">Remove Slot</a></li>
+                    <li class="nav-item"><a href="#" id="analyticsLink" class="nav-link">Analytics</a></li>
+                    <li class="nav-item"><a href="#" id="markBunkLink" class="nav-link">Mark Bunk on Map</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <header class="header">
+                <h1 class="header-title">Dashboard Overview</h1>
+                <h2 class="welcome-title">Welcome Admin!</h2>
+            </header>
+            <div id="content" class="content">
+                <div id="addBunkFormContainer" class="form-container" style="display: none;">
+                    <h2 class="form-title">Add New Charging Bunk</h2>
+                    <form id="addBunkForm" class="bunk-form">
+                        <div class="form-group">
+                            <label for="bunkName" class="form-label">Bunk Name</label>
+                            <input type="text" id="bunkName" name="bunkName" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="numSlots" class="form-label">Number of Slots</label>
+                            <input type="number" id="numSlots" name="numSlots" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="location" class="form-label">Location</label>
+                            <input type="text" id="location" name="location" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="chargingtype" class="form-label">Charging Type</label>
+                            <input type="text" id="chargingtype" name="chargingtype" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact" class="form-label">Contact</label>
+                            <input type="text" id="contact" name="contact" class="form-input" required>
+                        </div>
+                        <button type="submit" class="form-button">Create Bunk</button>
+                        <div id="message" style="display: none;"></div>
+                    </form>
+                </div>
+
+                <div id="manageBunkContainer" class="manage-bunk-container" style="display: none;">
+                    <h2 class="manage-bunk-title">Manage Bunk</h2>
+                    <div id="bunkList"></div>
+                </div>
+
+                <!-- Edit Bunk Modal -->
+                <div id="editBunkModal" style="display: none;">
+                    <div class="modal-content">
+                        <span id="closeModal" class="close">&times;</span>
+                        <h2>Edit Bunk</h2>
+                        <label for="editLocation">Location:</label>
+                        <input type="text" id="editLocation">
+                        <label for="editContact">Contact:</label>
+                        <input type="text" id="editContact">
+                        <label for="editNumSlot">Number of Slots:</label>
+                        <input type="number" id="editNumSlot">
+                        <button id="saveBunkChanges">Save Changes</button>
+                    </div>
+                </div>               
+
+                <div id="manageUsersContainer" class="users-container" style="display: none;">
+                    <h2 class="users-title">Manage Users</h2>
+                    <div id="userList"></div>
+                </div>
+
+                <div id="removeSlotContainer" class="remove-slot-container" style="display: none;">
+                    <h2 class="remove-slot-title">Remove Charging Slot</h2>
+                    <div id="slotList"></div>
+                </div>
+
+                <div id="analyticsContainer" class="analytics-container" style="display: none;">
+                    <h2 class="analytics-title">Analytics Overview</h2>
+                </div>
+
+                <div id="markBunkContainer" class="mark-bunk-container" style="display: none;">
+                    <h2 class="mark-bunk-title">Mark Bunk on Map</h2>
+                    
+                    <!-- Bunk Selection Dropdown -->
+                    <div class="form-group">
+                        <label for="bunkSelect" class="form-label">Select Bunk</label>
+                        <select id="bunkSelect" name="bunkSelect" class="form-input" required>
+                            <option value="" disabled selected>Select a bunk</option>
+                        </select>
+                    </div>
+                    
+                    <p>Select a location on the map to set the latitude and longitude for the bunk.</p>
+                    
+                    <!-- Map Container -->
+                    <div id="adminMap" style="height: 300px;"></div>
+                    
+                    <!-- Latitude and Longitude Fields -->
+                    <div class="form-group">
+                        <label for="latitude" class="form-label">Latitude</label>
+                        <input type="text" id="latitude" name="latitude" class="form-input" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="longitude" class="form-label">Longitude</label>
+                        <input type="text" id="longitude" name="longitude" class="form-input" readonly>
+                    </div>
+                
+                    <button id="saveLocation" class="form-button">Save Location</button>
+                    <div id="markBunkMessage" style="display: none;"></div>
+                </div>                
+            </div>
+        </main>
+    </div> 
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script type="module" src="script.js"></script>
+</body>
+</html>
