@@ -24,7 +24,7 @@ const auth = getAuth(app);
 // Authentication functions
 //
 
-if (window.location.pathname.endsWith("index.html/")) {
+if (window.location.pathname.endsWith("Electric-Vehicle-Recharge-Bunk/")) {
     document.addEventListener('DOMContentLoaded', () => {
         const loginButton = document.querySelector('.login-btn');
 
