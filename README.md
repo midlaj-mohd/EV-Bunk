@@ -1,4 +1,10 @@
 # Electric Vehicle Recharge Bunk
+
+
+![image](https://github.com/user-attachments/assets/faed2e74-8dcd-492f-97c5-9e70cc19b0cf)
+
+
+
 ## Overview
 Electric Vehicle Recharge Bunk is a web-based application designed to streamline the process of finding and booking EV charging stations (referred to as "bunks") in various locations. It provides a user-friendly interface for both EV owners and administrators, supporting station management, booking functionality, and real-time map integration.
 
