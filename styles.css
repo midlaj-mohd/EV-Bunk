@@ -7,7 +7,6 @@
 
 /* Login Page  */
 
-
 .login-page {
     font-family: 'Arial', sans-serif;
     background-color: #0e4da4;
@@ -111,7 +110,7 @@ a:hover {
     display: flex;
     justify-content: flex-end;
     padding: 5px 20px;
-    background-color: #ffffff00;
+    background-color: #a50a0a00;
     position: fixed;
     width: 100%;
     top: 0;
@@ -133,7 +132,7 @@ a:hover {
 
 .index nav ul li a {
     text-decoration: none;
-    color: #000;
+    color: #ffffff;
     font-weight: 500;
     padding: 5px 10px;
     transition: color 0.3s;
@@ -141,25 +140,31 @@ a:hover {
 }
 
 .index nav ul li a:hover {
-    color: #0e4da4;
+    color: #00fbff;
+    text-shadow: 
+        0 0 5px #00fbff,
+        0 0 10px #00fbff,
+        0 0 20px #00fbff,
+        0 0 30px #00fbff,
+        0 0 40px #00fbff,
+        0 0 50px #00fbff,
+        0 0 75px #00fbff;
 }
 
-.index nav ul li input[type="text"] {
+
+#stationSearch {
+    background-color: rgba(255, 0, 0, 0);
+    color: white;
+    border: 1px solid #ccc;  /* Add a border */
+    border-radius: 5px;      /* Optional: Add rounded corners */
     height: 30px;
     width: 200px;
-    border: 1px solid #ddd;
     border-radius: 5px;
     padding: 0 10px;
     font-size: 14px;
     transition: border-color 0.3s;
     line-height: 30px;
 }
-
-.index nav ul li input[type="text"]:focus {
-    border-color: #0e4da4;
-    outline: none;
-}
-
 
 
 /* My Booking */
@@ -245,11 +250,13 @@ a:hover {
     display: flex;
     padding: 120px 30px;
     height: 100vh;
-    background-color: #ffffff;
+    background-color: #000000;
 }
+
 
 .hero-text {
     max-width: 50%;
+    padding: 50px;
     font-family: 'Sora', sans-serif;
 }
 
@@ -257,7 +264,7 @@ a:hover {
     font-size: 56px;
     font-weight: bold;
     text-align: left;
-    color: #000;
+    color: #ffffff;
     padding-bottom: 0%;
 }
 
@@ -269,19 +276,79 @@ a:hover {
     padding-bottom: 3%;
 }
 
+
+
+/* Base Button Style */
 .hero-text button {
     padding: 15px 25px;
-    background-color: #000;
+    background-color: #000000;
     color: #fff;
     border: none;
     cursor: pointer;
     font-size: 16px;
     border-radius: 25px;
+    position: relative;
+    z-index: 0;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
 }
 
-.hero-text button:hover {
-    background-color: #2600ff;
+/* Glowing Effect */
+.hero-text button:before {
+    content: "";
+    background: linear-gradient(
+      45deg,
+      #ff0000,
+      #ff7300,
+      #fffb00,
+      #48ff00,
+      #00ffd5,
+      #002bff,
+      #7a00ff,
+      #ff00c8,
+      #ff0000
+    );
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing-button 20s linear infinite;
+    border-radius: 25px;
+    transition: opacity 0.3s ease-in-out;
 }
+
+/* Glowing Animation */
+@keyframes glowing-button {
+    0% {
+        background-position: 0 0;
+    }
+    50% {
+        background-position: 400% 0;
+    }
+    100% {
+        background-position: 0 0;
+    }
+}
+
+/* Dark Overlay */
+.hero-text button:after {
+    z-index: -1;
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #222222e0;
+    left: 0;
+    top: 0;
+    border-radius: 25px;
+}
+
 
 .hero-image {
     display: flex;
@@ -293,8 +360,28 @@ a:hover {
     max-width: 100%;
     height: auto;
     display: block;
+    transform: scale(1.2);
 }
 
+/* Scroll Bar  */
+
+html, body {
+    margin: 0;
+    height: 100%;
+    overflow-x: hidden;  /* Disable horizontal scrolling */
+}
+
+.index {
+    width: 100vw;        /* Ensure the container takes the full width of the viewport */
+    height: 100vh;       /* Ensure the container takes the full height of the viewport */
+    overflow-y: auto;    /* Enable vertical scrolling */
+    overflow-x: hidden;  /* Disable horizontal scrolling */
+}
+
+/* For WebKit browsers (like Chrome and Safari) */
+.index::-webkit-scrollbar {
+    display: none;  /* Hide the scrollbar */
+}
 
 
 /* Available Station  */
@@ -827,7 +914,7 @@ a:hover {
 }
 
 button {
-    margin-left: 10px;
+    /* margin-left: 10px; */
     background: #dc3545;
     color: white;
     border: none;
